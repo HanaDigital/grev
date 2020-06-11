@@ -11,12 +11,12 @@ export class AppComponent {
   title: string = "View github release statistics.";
   url: string = "https://github.com/HanaDigital/NovelScraper";
 
-  json: [];
+  json;
 
-  latestAssets: [];
+  latestAssets;
   totalLatestUsers: number = 0;
 
-  releases: [] = [];
+  releases = [];
   totalDownloads: number = 0;
 
   bannerHover: boolean = false;
@@ -81,7 +81,7 @@ export class AppComponent {
     for (let i = 0; i < this.json.length; i++) {
       let assets = this.json[i].assets;
       let name = this.json[i].name;
-      let downloads = 0;
+      var downloads: number = 0;
       for (let x = 0; x < assets.length; x++) {
         downloads += assets[x].download_count;
       }
