@@ -1,0 +1,217 @@
+@import "../assets/scss/global.scss";
+
+nav {
+  height: $navHeight;
+  margin-top: 1.3em;
+  margin-left: $marginWall;
+  margin-right: $marginWall;
+  display: grid;
+  grid-template-columns: 10em auto;
+  position: relative;
+
+  h1 {
+    font-family: "Permanent Marker";
+    font-size: 2em;
+    height: 100%;
+
+    span {
+      color: $secondaryFontColor;
+    }
+  }
+
+  .navButtons {
+    width: 20em;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    height: 100%;
+
+    ul {
+      list-style-type: none;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        display: inline;
+        font-size: 1.2em;
+        font-weight: 700;
+
+        a {
+          text-decoration: none;
+        }
+
+        #donateButton {
+          color: $secondaryFontColor;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+
+  .banner {
+    margin-top: 20em;
+    width: 100%;
+    height: 15em;
+    // background: blue;
+    text-align: center;
+    transition: margin 0.8s;
+
+    .title {
+      font-family: "Caveat";
+      font-size: 3.5em;
+      margin-bottom: 1.5em;
+      transition: margin 0.8s;
+
+      .blinker {
+        position: absolute;
+        margin-left: 3px;
+        font-family: "Monsterrat";
+      }
+    }
+
+    .titleHover {
+      margin-bottom: 0.3em;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      .searchHolder {
+        position: relative;
+        input:focus {
+          outline: none;
+        }
+        input::placeholder {
+          color: $fadeFontColor;
+        }
+
+        #searchBar {
+          border: none;
+          border-radius: 5px;
+          box-shadow: 5px 5px 12px -2px rgba(100, 100, 100, 0.1);
+          width: 40em;
+          height: 3em;
+          padding: 1em;
+          padding-right: 2.8em;
+          font-size: 1.2em;
+          font-family: "Montserrat";
+        }
+
+        #searchButton {
+          cursor: pointer;
+          position: absolute;
+          width: 3.5em;
+          padding: 1em;
+          top: 0px;
+          right: 0px;
+        }
+      }
+    }
+
+    .mainHolder {
+      // background: red;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 5em;
+
+      .holder {
+        background: white;
+        width: 30em;
+        box-shadow: 5px 5px 12px -2px rgba(100, 100, 100, 0.1);
+        padding: 1em;
+        text-align: left;
+        border-radius: 10px;
+        margin: 0.5em;
+
+        h5 {
+          font-size: 4em;
+          color: $secondaryFontColor;
+        }
+
+        .infoHolder {
+          max-height: 20em;
+          overflow: auto;
+          .latestAssets {
+            .box {
+              width: 100%;
+              padding: 1em;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .divider {
+                width: 100%;
+                height: 3px;
+                background: $secondaryFontColor;
+              }
+
+              .name {
+                float: left;
+                margin-right: 1em;
+                white-space: nowrap;
+              }
+
+              .downloads {
+                float: right;
+                margin-left: 1em;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bannerHover {
+    margin-top: 6em !important;
+  }
+}
+
+footer {
+  width: 100%;
+  margin-left: $marginWall;
+  margin-right: $marginWall;
+  margin-bottom: 1.3em;
+  position: fixed;
+  bottom: 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.blobs {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
+
+  .mainBlob {
+    position: absolute;
+    width: 25em;
+    bottom: 0em;
+    right: 0em;
+  }
+
+  .miniBlob {
+    position: absolute;
+    width: 7em;
+    top: 10em;
+    left: 15em;
+  }
+}

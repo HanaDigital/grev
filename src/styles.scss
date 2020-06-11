@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/global.scss";
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap"); // Caveat
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"); // Permanent Marker
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"); // Montserrat
+
+* {
+  padding: 0;
+  margin: 0;
+  color: $primaryFontColor;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Montserrat";
+  background: rgb(250, 250, 255);
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 12px;
+  margin-top: 30px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(100, 100, 100, 1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(100, 100, 100, 1);
+}
