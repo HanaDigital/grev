@@ -29,23 +29,57 @@
           placeholder="github.com/username/repo"
           [(ngModel)]="url"
           (keydown.enter)="search()"
+          autofocus
+          [ngStyle]="{
+            animation: showError ? 'shake 0.5s, redGlow 1s infinite' : 'none'
+          }"
         />
         <img
           id="searchButton"
           src="assets/img/search.svg"
           alt="search icon"
           (click)="search()"
+          [ngStyle]="{
+            animation: showError ? 'shake 0.5s' : 'none'
+          }"
         />
+      </div>
+      <div
+        class="clearButton"
+        [ngStyle]="{
+          opacity: showStats ? '1' : '0',
+          'margin-right': showStats ? '0' : '-3.6em',
+          cursor: showStats ? 'pointer' : 'initial'
+        }"
+        (click)="loadClickedRepo('')"
+      >
+        <img src="assets/img/cancel-icon.svg" alt="cancel icon" />
+      </div>
+    </div>
+    <p
+      [ngStyle]="{ display: showError ? 'block' : 'none' }"
+      class="errorHolder"
+    >
+      {{ errorMsg }}
+    </p>
+
+    <div
+      [ngClass]="{ mainHolderHover: showRepos, repoHolder: true }"
+      [ngStyle]="{ display: showRepos ? 'flex' : 'none' }"
+    >
+      <div
+        class="holder"
+        *ngFor="let repo of cachedRepos"
+        (click)="loadClickedRepo(repo.url)"
+      >
+        <p>{{ repo.name }}</p>
       </div>
     </div>
 
-    <div
-      class="mainHolder"
-      [ngStyle]="{ display: showStats ? 'flex' : 'none' }"
-    >
+    <div [ngClass]="{ mainHolderHover: showStats, mainHolder: true }">
       <div class="holder">
         <h4>LATEST RELEASE</h4>
-        <h5>{{ totalLatestUsers }}</h5>
+        <h5>{{ totalLatestUsers }}<span>/ downloads</span></h5>
         <div class="infoHolder">
           <div class="latestAssets" *ngFor="let asset of latestAssets">
             <div class="box">
@@ -59,7 +93,7 @@
 
       <div class="holder">
         <h4>TOTAL DOWNLOADS</h4>
-        <h5>{{ totalDownloads }}</h5>
+        <h5>{{ totalDownloads }}<span>/ downloads</span></h5>
         <div class="infoHolder">
           <div class="latestAssets" *ngFor="let release of releases">
             <div class="box">

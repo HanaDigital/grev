@@ -11,6 +11,8 @@ export class AppComponent {
   title: string = "View github release statistics.";
   url: string;
 
+  cachedRepos = [];
+
   json;
 
   latestAssets;
@@ -22,7 +24,11 @@ export class AppComponent {
   bannerHover: boolean = false;
   blink: boolean = true;
   blinker: string = "";
+
   showStats: boolean = false;
+  showRepos: boolean = true;
+  showError: boolean = false;
+  errorMsg: string;
 
   constructor() {
     setInterval(() => {
@@ -32,14 +38,30 @@ export class AppComponent {
       }
       if (this.blinker) { this.blinker = "" }
       else { this.blinker = "|" }
-    }, 500)
+    }, 500);
+
+    this.loadRepos();
   }
 
   search() {
-    if (!this.url) { return; }
+    const localURL = this.url;
+    this.showError = false;
+    this.showStats = false;
+    this.wipe();
+
+    if (!this.url) {
+      this.showError = false;
+      this.showRepos = true;
+      this.changeTitle("View github release statistics.");
+      this.bannerHover = false;
+      this.errorMsg = "";
+      return;
+    }
 
     if (!this.url.includes("github.com/")) {
-      console.log("Error: Not a github URL.")
+      setTimeout(() => {
+        this.errorReset("Not a github URL");
+      }, 0);
       return;
     }
     const urlArray: string[] = this.url.replace("https://", "").split("/");
@@ -47,14 +69,14 @@ export class AppComponent {
     const repo: string = urlArray[2];
 
     if (!username || !repo) {
-      console.log("Error: Invalid URL.")
+      setTimeout(() => {
+        this.errorReset("Invalid URL");
+      }, 0);
       return;
     }
 
-    this.wipe();
-    this.changeTitle(repo);
-
     this.bannerHover = true;
+    this.showRepos = false;
 
     const apiURL = "https://api.github.com/repos/" + username + "/" + repo + "/releases";
 
@@ -62,13 +84,20 @@ export class AppComponent {
       .then(res => res.json())
       .then(json => {
         if (json.message === "Not Found") {
-          console.log("Error: Invalid repository.");
+          this.errorReset("Invalid repository")
+          return;
+        } else if (json.length === 0) {
+          this.errorReset("This repository does not have any releases")
           return;
         }
         this.json = json;
+        this.changeTitle(repo);
         this.getLatestUsers();
         this.getTotalDownloads();
         this.showStats = true;
+
+        this.cacheRepo({ name: repo, url: localURL });
+        this.loadRepos();
       });
   }
 
@@ -93,6 +122,8 @@ export class AppComponent {
   }
 
   async changeTitle(name) {
+    const titleText = "View github release statistics.";
+    if (this.title === titleText && name === titleText) { return; }
     this.blink = false;
     for (let i = this.title.length - 1; i >= 0; i--) {
       this.title = this.title.slice(0, i);
@@ -118,5 +149,58 @@ export class AppComponent {
 
     this.releases = [];
     this.totalDownloads = 0;
+  }
+
+  errorReset(error: string) {
+    this.errorMsg = error;
+    this.showError = true;
+    this.showRepos = true;
+    this.changeTitle("View github release statistics.");
+    this.bannerHover = false;
+  }
+
+  cacheRepo(repoObj) {
+    let next = localStorage.getItem("next");
+    console.log(next);
+    if (next === null) {
+      next = "one";
+      localStorage.setItem("next", next);
+    }
+
+    if (JSON.parse(localStorage.getItem("one")).url.toLowerCase() === repoObj.url.toLowerCase()
+      || JSON.parse(localStorage.getItem("two")).url.toLowerCase() === repoObj.url.toLowerCase()
+      || JSON.parse(localStorage.getItem("three")).url.toLowerCase() === repoObj.url.toLowerCase()) {
+      return;
+    }
+
+    switch (next) {
+      case "one":
+        localStorage.setItem(next, JSON.stringify(repoObj));
+        localStorage.setItem("next", "two");
+        break;
+      case "two":
+        localStorage.setItem(next, JSON.stringify(repoObj));
+        localStorage.setItem("next", "three");
+        break;
+      case "three":
+        localStorage.setItem(next, JSON.stringify(repoObj));
+        localStorage.setItem("next", "one");
+        break;
+    }
+  }
+
+  loadRepos() {
+    let one = localStorage.getItem("one");
+    let two = localStorage.getItem("two");
+    let three = localStorage.getItem("three");
+    this.cachedRepos = [];
+    if (one !== null) { this.cachedRepos.push(JSON.parse(one)); }
+    if (two !== null) { this.cachedRepos.push(JSON.parse(two)); }
+    if (three !== null) { this.cachedRepos.push(JSON.parse(three)); }
+  }
+
+  loadClickedRepo(repoURL) {
+    this.url = repoURL;
+    this.search();
   }
 }
