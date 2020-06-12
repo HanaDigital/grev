@@ -40,6 +40,7 @@ export class AppComponent {
       else { this.blinker = "|" }
     }, 500);
 
+    localStorage.clear();
     this.loadRepos();
   }
 
@@ -167,9 +168,9 @@ export class AppComponent {
       localStorage.setItem("next", next);
     }
 
-    if (JSON.parse(localStorage.getItem("one")).url.toLowerCase() === repoObj.url.toLowerCase()
-      || JSON.parse(localStorage.getItem("two")).url.toLowerCase() === repoObj.url.toLowerCase()
-      || JSON.parse(localStorage.getItem("three")).url.toLowerCase() === repoObj.url.toLowerCase()) {
+    if ((localStorage.getItem("one") && JSON.parse(localStorage.getItem("one")).url.toLowerCase() === repoObj.url.toLowerCase())
+      || (localStorage.getItem("two") && JSON.parse(localStorage.getItem("two")).url.toLowerCase() === repoObj.url.toLowerCase())
+      || (localStorage.getItem("three") && JSON.parse(localStorage.getItem("three")).url.toLowerCase() === repoObj.url.toLowerCase())) {
       return;
     }
 
