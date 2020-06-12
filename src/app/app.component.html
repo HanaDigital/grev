@@ -2,8 +2,14 @@
   <h1>G<span>re</span>V</h1>
   <div class="navButtons">
     <ul>
-      <li><a href="https://github.com/" target="_blank">Github</a></li>
-      <li><a href="https://github.com/" target="_blank">Bug Report</a></li>
+      <li>
+        <a href="https://github.com/HanaDigital/grev" target="_blank">Github</a>
+      </li>
+      <li>
+        <a href="https://github.com/HanaDigital/grev/issues/new" target="_blank"
+          >Bug Report</a
+        >
+      </li>
       <li><a id="donateButton" href="" target="_blank">Donate</a></li>
     </ul>
   </div>
@@ -26,14 +32,17 @@
         />
         <img
           id="searchButton"
-          src="../assets/img/search.svg"
+          src="assets/img/search.svg"
           alt="search icon"
           (click)="search()"
         />
       </div>
     </div>
 
-    <div class="mainHolder">
+    <div
+      class="mainHolder"
+      [ngStyle]="{ display: showStats ? 'flex' : 'none' }"
+    >
       <div class="holder">
         <h4>LATEST RELEASE</h4>
         <h5>{{ totalLatestUsers }}</h5>
@@ -70,10 +79,10 @@
 </footer>
 
 <div class="blobs">
-  <img id="blob1" class="mainBlob" src="../assets/img/blob-bottom.png" />
-  <img id="blob2" class="mainBlob" src="../assets/img/blob-top.png" />
+  <img id="blob1" class="mainBlob" src="assets/img/blob-bottom.png" />
+  <img id="blob2" class="mainBlob" src="assets/img/blob-top.png" />
 
-  <img class="miniBlob" src="../assets/img/mini-blobs.png" />
+  <img class="miniBlob" src="assets/img/mini-blobs.png" />
 </div>
 
 <router-outlet></router-outlet>

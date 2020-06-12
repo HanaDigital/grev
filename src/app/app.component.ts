@@ -9,7 +9,7 @@ import fetch from 'cross-fetch';
 export class AppComponent {
 
   title: string = "View github release statistics.";
-  url: string = "https://github.com/HanaDigital/NovelScraper";
+  url: string;
 
   json;
 
@@ -22,6 +22,7 @@ export class AppComponent {
   bannerHover: boolean = false;
   blink: boolean = true;
   blinker: string = "";
+  showStats: boolean = false;
 
   constructor() {
     setInterval(() => {
@@ -67,6 +68,7 @@ export class AppComponent {
         this.json = json;
         this.getLatestUsers();
         this.getTotalDownloads();
+        this.showStats = true;
       });
   }
 
