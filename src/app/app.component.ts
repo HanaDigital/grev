@@ -40,7 +40,6 @@ export class AppComponent {
       else { this.blinker = "|" }
     }, 500);
 
-    localStorage.clear();
     this.loadRepos();
   }
 
