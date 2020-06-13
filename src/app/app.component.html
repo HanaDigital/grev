@@ -72,7 +72,9 @@
         *ngFor="let repo of cachedRepos"
         (click)="loadClickedRepo(repo.url)"
       >
+        <div class="line"></div>
         <p>{{ repo.name }}</p>
+        <div class="line"></div>
       </div>
     </div>
 
