@@ -10,7 +10,14 @@
           >Bug Report</a
         >
       </li>
-      <li><a id="donateButton" href="" target="_blank">Donate</a></li>
+      <li>
+        <a
+          id="donateButton"
+          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NY9ND9G98QLRY&source=url"
+          target="_blank"
+          >Donate</a
+        >
+      </li>
     </ul>
   </div>
 </nav>
@@ -33,6 +40,7 @@
           [ngStyle]="{
             animation: showError ? 'shake 0.5s, redGlow 1s infinite' : 'none'
           }"
+          spellcheck="false"
         />
         <img
           id="searchButton"
@@ -73,7 +81,10 @@
         (click)="loadClickedRepo(repo.url)"
       >
         <div class="line line1"></div>
-        <p>{{ repo.name }}</p>
+        <div class="text">
+          <h6>{{ repo.id.split("/")[0] }}</h6>
+          <p>{{ repo.name }}</p>
+        </div>
         <div class="line line2"></div>
       </div>
     </div>

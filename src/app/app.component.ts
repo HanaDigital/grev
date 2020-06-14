@@ -40,6 +40,7 @@ export class AppComponent {
       else { this.blinker = "|" }
     }, 500);
 
+    // localStorage.clear();
     this.loadRepos();
   }
 
@@ -58,15 +59,18 @@ export class AppComponent {
       return;
     }
 
-    if (!this.url.includes("github.com/")) {
+    const urlArray: string[] = localURL.replace("https://", "").split("/");
+
+    if (!this.url.includes("github.com/") && urlArray.length !== 2) {
       setTimeout(() => {
         this.errorReset("Not a github URL");
       }, 0);
       return;
     }
-    const urlArray: string[] = this.url.replace("https://", "").split("/");
-    const username: string = urlArray[1];
-    const repo: string = urlArray[2];
+
+    const username: string = urlArray[urlArray.length - 2];
+    const repo: string = urlArray[urlArray.length - 1];
+    const id: string = username.toLowerCase() + "/" + repo.toLowerCase();
 
     if (!username || !repo) {
       setTimeout(() => {
@@ -78,7 +82,7 @@ export class AppComponent {
     this.bannerHover = true;
     this.showRepos = false;
 
-    const apiURL = "https://api.github.com/repos/" + username + "/" + repo + "/releases";
+    const apiURL = "https://api.github.com/repos/" + id + "/releases";
 
     fetch(apiURL)
       .then(res => res.json())
@@ -96,7 +100,7 @@ export class AppComponent {
         this.getTotalDownloads();
         this.showStats = true;
 
-        this.cacheRepo({ name: repo, url: localURL });
+        this.cacheRepo({ id: id, name: repo, url: localURL });
         this.loadRepos();
       });
   }
@@ -167,9 +171,9 @@ export class AppComponent {
       localStorage.setItem("next", next);
     }
 
-    if ((localStorage.getItem("one") && JSON.parse(localStorage.getItem("one")).url.toLowerCase() === repoObj.url.toLowerCase())
-      || (localStorage.getItem("two") && JSON.parse(localStorage.getItem("two")).url.toLowerCase() === repoObj.url.toLowerCase())
-      || (localStorage.getItem("three") && JSON.parse(localStorage.getItem("three")).url.toLowerCase() === repoObj.url.toLowerCase())) {
+    if ((localStorage.getItem("one") && JSON.parse(localStorage.getItem("one")).id === repoObj.id)
+      || (localStorage.getItem("two") && JSON.parse(localStorage.getItem("two")).id === repoObj.id)
+      || (localStorage.getItem("three") && JSON.parse(localStorage.getItem("three")).id === repoObj.id)) {
       return;
     }
 
