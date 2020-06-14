@@ -12,6 +12,7 @@
 - Cache recently visited repositories for ease of use.
 
 ## How to use
+- Goto https://hanadigital.github.io/grev/.
 - Paste the URL of the repository you want to view in any of the following formats:
 	- `https://github.com/username/repo`
 	- `github.com/username/repo`
