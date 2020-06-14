@@ -19,7 +19,7 @@
 	- `username/repo`
 
 ## Bug report
-- If you find any bugs then
+- If you find any bugs then feel free to report them [here](https://github.com/HanaDigital/grev/issues).
 
 ## Donate / Support
 If you like our work, and want to help support apps like these, you may optionally [donate here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url) or join our discord https://discord.gg/Wya4Dst
