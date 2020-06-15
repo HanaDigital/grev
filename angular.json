@@ -121,6 +121,10 @@
               "devServerTarget": "grev:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

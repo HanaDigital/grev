@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import fetch from 'cross-fetch';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,8 @@ export class AppComponent {
   showError: boolean = false;
   errorMsg: string;
 
-  constructor() {
+  constructor(analytics: AngularFireAnalytics) {
+    analytics.logEvent('Page Loaded!');
     setInterval(() => {
       if (!this.blink) {
         this.blinker = "|";

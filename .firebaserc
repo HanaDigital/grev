@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "grev-d436d": {
+      "hosting": {
+        "grev": [
+          "grev-d436d"
+        ]
+      }
+    }
+  }
+}
