@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import fetch from 'cross-fetch';
 import { AngularFireAnalytics } from '@angular/fire/analytics';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title: string = "View github release statistics.";
   url: string;
@@ -31,7 +32,8 @@ export class AppComponent {
   showError: boolean = false;
   errorMsg: string;
 
-  constructor(analytics: AngularFireAnalytics) {
+  constructor(analytics: AngularFireAnalytics, private meta: Meta) {
+
     analytics.logEvent('Page Loaded!');
     setInterval(() => {
       if (!this.blink) {
@@ -44,6 +46,26 @@ export class AppComponent {
 
     // localStorage.clear();
     this.loadRepos();
+  }
+
+  ngOnInit() {
+    this.meta.addTags([
+      { prefix: "og: http://ogp.me/ns#", property: 'og:site_name', content: 'GREV' },
+      { prefix: "og: http://ogp.me/ns#", property: 'og:title', content: 'Github Release Viewer' },
+      { prefix: "og: http://ogp.me/ns#", property: 'og:description', content: 'View statistics such as download count for your github releases.' },
+      { prefix: "og: http://ogp.me/ns#", property: 'og:image', content: 'https://i.imgur.com/M9BylwW.png' },
+      { prefix: "og: http://ogp.me/ns#", property: 'og:url', content: 'https://hanadigital.github.io/grev/' },
+      { property: 'og:site_name', content: 'GREV' },
+      { property: 'og:title', content: 'Github Release Viewer' },
+      { property: 'og:description', content: 'View statistics such as download count for your github releases.' },
+      { property: 'og:image', content: 'https://i.imgur.com/M9BylwW.png' },
+      { property: 'og:url', content: 'https://hanadigital.github.io/grev/' },
+      { name: 'og:site_name', content: 'GREV' },
+      { name: 'og:title', content: 'Github Release Viewer' },
+      { name: 'og:description', content: 'View statistics such as download count for your github releases.' },
+      { name: 'og:image', content: 'https://i.imgur.com/M9BylwW.png' },
+      { name: 'og:url', content: 'https://hanadigital.github.io/grev/' },
+    ], true);
   }
 
   search() {
