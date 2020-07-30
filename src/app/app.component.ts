@@ -66,6 +66,14 @@ export class AppComponent implements OnInit {
       { name: 'og:image', content: 'https://i.imgur.com/M9BylwW.png' },
       { name: 'og:url', content: 'https://hanadigital.github.io/grev/' },
     ], true);
+
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user");
+    let repo = url.searchParams.get("repo");
+    if (user || repo) {
+      this.url = user + "/" + repo;
+      this.search();
+    }
   }
 
   search() {
@@ -102,6 +110,10 @@ export class AppComponent implements OnInit {
       }, 0);
       return;
     }
+
+    var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    var newURL = url + "?user=" + username + "&repo=" + repo;
+    window.history.pushState({ path: newURL }, '', newURL);
 
     this.bannerHover = true;
     this.showRepos = false;
@@ -189,7 +201,6 @@ export class AppComponent implements OnInit {
 
   cacheRepo(repoObj) {
     let next = localStorage.getItem("next");
-    console.log(next);
     if (next === null) {
       next = "one";
       localStorage.setItem("next", next);
