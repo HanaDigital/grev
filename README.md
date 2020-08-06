@@ -1,6 +1,6 @@
 # [<img src="https://user-images.githubusercontent.com/41040912/84599591-3cf7a480-ae84-11ea-8a25-ef53b8da64b4.png" width="150px"/>](https://hanadigital.github.io/grev/)
 
-[Github Release Viewer](https://hanadigital.github.io/grev/). An open source, angular web app to view your github repository release statistics.
+[Website](https://hanadigital.github.io/grev/). An open source, angular web app to view your github repository release statistics.
 
 #### Authors
 - dr-nyt
