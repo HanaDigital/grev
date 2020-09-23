@@ -386,7 +386,7 @@ footer {
 
   .content {
     .banner {
-      margin-top: 20em;
+      margin-top: 10em;
       width: 100%;
       height: 15em;
       // background: blue;
@@ -394,10 +394,10 @@ footer {
       transition: margin 0.8s;
 
       .title {
-        font-size: 3.5em;
+        font-size: 2em;
         height: 1.3em;
-        margin-bottom: 1.5em;
-        transition: margin 0.8s;
+        margin-bottom: 0.5em;
+        transition: all 1s;
 
         .blinker {
           position: absolute;
@@ -407,6 +407,7 @@ footer {
       }
 
       .titleHover {
+        font-size: 3em;
         margin-bottom: 0.3em;
       }
 
@@ -574,7 +575,7 @@ footer {
     }
 
     .bannerHover {
-      margin-top: 6em !important;
+      margin-top: 10em !important;
     }
   }
 
