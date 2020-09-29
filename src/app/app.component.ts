@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
 
   json;
 
+  nameLength: number = 34;
+
   latestAssets;
   totalLatestUsers: number = 0;
 
@@ -151,12 +153,13 @@ export class AppComponent implements OnInit {
   getTotalDownloads() {
     for (let i = 0; i < this.json.length; i++) {
       let assets = this.json[i].assets;
-      let name = this.json[i].name;
+      let name: string = this.json[i].name;
       var downloads: number = 0;
       for (let x = 0; x < assets.length; x++) {
         downloads += assets[x].download_count;
       }
       this.totalDownloads += downloads;
+      if (name.length > this.nameLength) name = name.slice(0, this.nameLength) + "...";
       this.releases.push({ name: name, downloads: downloads });
     }
   }

@@ -96,7 +96,13 @@
         <div class="infoHolder">
           <div class="latestAssets" *ngFor="let asset of latestAssets">
             <div class="box">
-              <div class="name">{{ asset.name }}</div>
+              <div class="name">
+                {{
+                  asset.name.length > nameLength
+                    ? asset.name.slice(0, nameLength) + "..."
+                    : asset.name
+                }}
+              </div>
               <div class="divider"></div>
               <div class="downloads">{{ asset.download_count }}</div>
             </div>
