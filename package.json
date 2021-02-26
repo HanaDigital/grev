@@ -5,7 +5,8 @@
 		"ng": "ng",
 		"start": "ng serve",
 		"build": "ng build --prod --base-href=\"https://hanadigital.github.io/grev/\"",
-		"deploy": "ng build --prod --base-href=\"https://hanadigital.github.io/grev/\" && ngh",
+		"build-deploy": "ng build --prod --base-href=\"https://hanadigital.github.io/grev/\" && ngh",
+		"deploy": "ngh",
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e"

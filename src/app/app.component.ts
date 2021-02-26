@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
 	cachedRepos = [];
 
-	json;
+	json = [];
 
 	nameLength: number = 34;
 
@@ -171,21 +171,35 @@ export class AppComponent implements OnInit {
 		this.bannerHover = true;
 		this.showRepos = false;
 
-		const apiURL = "https://api.github.com/repos/" + id + "/releases";
+		this.getStats(id, repo, localURL);
+	}
 
-		fetch(apiURL)
-			.then((res) => res.json())
-			.then((json) => {
-				if (json.message === "Not Found") {
-					this.errorReset("Invalid repository");
-					return;
-				} else if (json.length === 0) {
-					this.errorReset(
-						"This repository does not have any releases"
-					);
-					return;
-				}
-				this.json = json;
+	async getStats(id: string, repo: string, localURL: string): Promise<void> {
+		for (let i = 1; i < 10; i++) {
+			let stop = false;
+			let apiURL = `https://api.github.com/repos/${id}/releases?page=${i}&per_page=100`;
+			console.log(apiURL);
+
+			await fetch(apiURL)
+				.then((res) => res.json())
+				.then((json) => {
+					this.json = [...this.json, ...json];
+					if (json.length === 0 && this.json.length > 0) {
+						stop = true;
+						return;
+					} else if (json.message === "Not Found") {
+						this.errorReset("Invalid repository");
+						return;
+					} else if (json.length === 0) {
+						this.errorReset(
+							"This repository does not have any releases"
+						);
+						return;
+					}
+					console.log(`page: ${i}`);
+				});
+
+			if (stop) {
 				this.changeTitle(repo);
 				this.getLatestUsers();
 				this.getTotalDownloads();
@@ -193,7 +207,9 @@ export class AppComponent implements OnInit {
 
 				this.cacheRepo({ id: id, name: repo, url: localURL });
 				this.loadRepos();
-			});
+				break;
+			}
+		}
 	}
 
 	getLatestUsers(): void {
