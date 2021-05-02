@@ -222,7 +222,7 @@ export class AppComponent implements OnInit {
 	getTotalDownloads(): void {
 		for (let i = 0; i < this.json.length; i++) {
 			let assets = this.json[i].assets;
-			let name: string = this.json[i].name;
+			let name: string = this.json[i].name || this.json[i].tag_name;
 			var downloads: number = 0;
 			for (let x = 0; x < assets.length; x++) {
 				downloads += assets[x].download_count;
