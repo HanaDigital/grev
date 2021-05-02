@@ -1,6 +1,12 @@
-# [<img src="https://user-images.githubusercontent.com/41040912/84599591-3cf7a480-ae84-11ea-8a25-ef53b8da64b4.png" width="150px"/>](https://hanadigital.github.io/grev/)
+<p align="center">
+  	<img width="100%" src="https://user-images.githubusercontent.com/41040912/116804280-ad57f480-ab2e-11eb-9bb9-46e714c05ac3.png">
+</p>
 
-[Website](https://hanadigital.github.io/grev/). An open source, angular web app to view your github repository release statistics.
+<p align="center">
+  	<a href="https://hanadigital.github.io/grev/"><img width="200" src="https://user-images.githubusercontent.com/41040912/116804290-ba74e380-ab2e-11eb-9945-57f16778b3bf.png"></a>
+	<br />
+	Web app to view github's release statistics.
+</p>
 
 #### Authors
 - dr-nyt
@@ -21,8 +27,8 @@
 ## Bug report
 - If you find any bugs then feel free to report them [here](https://github.com/HanaDigital/grev/issues).
 
-## Donate / Support
-If you like our work, and want to help support apps like these, you may optionally [donate here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url) or join our discord https://discord.gg/Wya4Dst
+## Support
+If you like our work, and want to help support apps like these, you can [buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url) or join our discord https://discord.gg/Wya4Dst
 
 ## License
 ```
