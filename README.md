@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  	<a href="https://github.com/HanaDigital/NovelScraper/releases"><img width="200" src="https://user-images.githubusercontent.com/41040912/116804290-ba74e380-ab2e-11eb-9945-57f16778b3bf.png"></a>
+  	<a href="https://hanadigital.github.io/grev/"><img width="200" src="https://user-images.githubusercontent.com/41040912/116804290-ba74e380-ab2e-11eb-9945-57f16778b3bf.png"></a>
 	<br />
 	Web app to view github's release statistics.
 </p>
