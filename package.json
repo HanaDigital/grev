@@ -1,6 +1,23 @@
 {
 	"name": "grev",
-	"version": "0.0.0",
+	"version": "0.0.5",
+	"description": "Github Release Viewer. View your github repository release statistics.",
+	"keywords": [
+		"github",
+		"releases",
+		"downloads",
+		"count"
+	],
+	"bugs": {
+		"url": "https://github.com/HanaDigital/grev/issues/new"
+	},
+	"homepage": "https://github.com/HanaDigital/grev#readme",
+	"license": "Apache-2.0",
+	"author": {
+		"name": "Shehryar",
+		"email": "shehryar.dev@gmail.com",
+		"url": "https://shehryar.hanadigital.me/"
+	},
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
@@ -11,7 +28,7 @@
 		"lint": "ng lint",
 		"e2e": "ng e2e"
 	},
-	"private": true,
+	"private": false,
 	"dependencies": {
 		"@angular/animations": "~9.0.5",
 		"@angular/common": "~9.0.5",
