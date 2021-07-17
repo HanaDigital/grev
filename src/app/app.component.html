@@ -3,15 +3,24 @@
 	<div class="navButtons">
 		<ul>
 			<li>
-				<a href="https://github.com/HanaDigital/grev" target="_blank">Github</a>
+				<a href="https://github.com/HanaDigital/grev" target="_blank"
+					>Github</a
+				>
 			</li>
 			<li>
-				<a href="https://github.com/HanaDigital/grev/issues/new" target="_blank">Bug Report</a>
+				<a
+					href="https://github.com/HanaDigital/grev/issues/new"
+					target="_blank"
+					>Bug Report</a
+				>
 			</li>
 			<li>
-				<a id="donateButton"
+				<a
+					id="donateButton"
 					href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url"
-					target="_blank">Donate</a>
+					target="_blank"
+					>Donate</a
+				>
 			</li>
 		</ul>
 	</div>
@@ -25,29 +34,58 @@
 		</h1>
 		<div class="wrapper">
 			<div class="searchHolder">
-				<input id="searchBar" type="text" placeholder="github.com/username/repo" [(ngModel)]="url"
-					(keydown.enter)="search()" autofocus [ngStyle]="{
-            animation: showError ? 'shake 0.5s, redGlow 1s infinite' : 'none'
-        }" spellcheck="false" />
-				<img id="searchButton" src="assets/img/search.svg" alt="" (click)="search()" [ngStyle]="{
-            animation: showError ? 'shake 0.5s' : 'none'
-        }" />
+				<input
+					id="searchBar"
+					type="text"
+					placeholder="github.com/username/repo"
+					[(ngModel)]="url"
+					(keydown.enter)="search()"
+					autofocus
+					[ngStyle]="{
+						animation: showError
+							? 'shake 0.5s, redGlow 1s infinite'
+							: 'none'
+					}"
+					spellcheck="false"
+				/>
+				<img
+					id="searchButton"
+					src="assets/img/search.svg"
+					alt=""
+					(click)="search()"
+					[ngStyle]="{
+						animation: showError ? 'shake 0.5s' : 'none'
+					}"
+				/>
 			</div>
-			<div class="clearButton" [ngStyle]="{
-			opacity: showStats ? '1' : '0',
-			'margin-right': showStats ? '0' : '-3.6em',
-			cursor: showStats ? 'pointer' : 'initial'
-        }" (click)="loadClickedRepo('')">
+			<div
+				class="clearButton"
+				[ngStyle]="{
+					opacity: showStats ? '1' : '0',
+					'margin-right': showStats ? '0' : '-3.6em',
+					cursor: showStats ? 'pointer' : 'initial'
+				}"
+				(click)="loadClickedRepo('')"
+			>
 				<img src="assets/img/cancel-icon.svg" alt="" />
 			</div>
 		</div>
-		<p [ngStyle]="{ display: showError ? 'block' : 'none' }" class="errorHolder">
+		<p
+			[ngStyle]="{ display: showError ? 'block' : 'none' }"
+			class="errorHolder"
+		>
 			{{ errorMsg }}
 		</p>
 
-		<div [ngClass]="{ mainHolderHover: showRepos, repoHolder: true }"
-			[ngStyle]="{ display: showRepos ? 'flex' : 'none' }">
-			<div class="holder" *ngFor="let repo of cachedRepos" (click)="loadClickedRepo(repo.url)">
+		<div
+			[ngClass]="{ mainHolderHover: showRepos, repoHolder: true }"
+			[ngStyle]="{ display: showRepos ? 'flex' : 'none' }"
+		>
+			<div
+				class="holder"
+				*ngFor="let repo of cachedRepos"
+				(click)="loadClickedRepo(repo.url)"
+			>
 				<div class="line line1"></div>
 				<div class="text">
 					<h6>{{ repo.id.split("/")[0] }}</h6>
@@ -62,17 +100,23 @@
 				<h4>LATEST RELEASE</h4>
 				<h5>{{ totalLatestUsers }}<span>/ downloads</span></h5>
 				<div class="infoHolder">
-					<div class="latestAssets" *ngFor="let asset of latestAssets">
+					<div
+						class="latestAssets"
+						*ngFor="let asset of latestAssets"
+					>
 						<div class="box">
 							<div class="name">
 								{{
-								asset.name.length > nameLength
-								? asset.name.slice(0, nameLength) + "..."
-								: asset.name
+									asset.name.length > nameLength
+										? asset.name.slice(0, nameLength) +
+										  "..."
+										: asset.name
 								}}
 							</div>
 							<div class="divider"></div>
-							<div class="downloads">{{ asset.download_count }}</div>
+							<div class="downloads">
+								{{ asset.download_count }}
+							</div>
 						</div>
 					</div>
 				</div>
