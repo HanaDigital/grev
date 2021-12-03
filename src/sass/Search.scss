@@ -1,0 +1,380 @@
+@import "global.variables";
+
+.Search {
+    width: 95%;
+    max-width: $maxWidth;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 2em 0;
+    position: relative;
+    z-index: 2;
+
+    .repoTitle {
+        text-align: center;
+
+        .repoOwner {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $fadedColor;
+        }
+
+        .clickable {
+            cursor: pointer;
+            position: relative;
+            width: max-content;
+            margin: 0 auto;
+
+            &:hover {
+                color: $primaryColor;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 0.2em;
+                background: $fadedColor;
+                width: 0;
+                margin: 0 auto;
+                transition: width 0.3s;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+
+        .repoName {
+            font-family: "Architects Daughter";
+            font-size: 3em;
+            text-align: center;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 0.05em;
+                background: $fadedColor;
+                right: -0.15em;
+                top: 0.2em;
+                bottom: 0.38em;
+                animation: blinker 0.7s infinite alternate;
+                border-radius: $borderRadius;
+            }
+
+            @keyframes blinker {
+                0% {
+                    opacity: 1;
+                }
+                49% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .repoSearch {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+
+        .bookmark {
+            cursor: pointer;
+            border-radius: $borderRadius;
+            border: 2px solid $accentColor;
+            // background: $accentColor;
+            outline: none;
+            color: $secondaryColor;
+            width: 0;
+            opacity: 0;
+            transition: width 0.5s, opacity 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                fill: $accentColor;
+            }
+
+            &:hover {
+                border: 2px solid transparent;
+                box-shadow: 0 0 12px -3px $accentColor;
+                background: $accentColor;
+
+                svg {
+                    fill: $secondaryColor;
+                }
+            }
+        }
+
+        .showBookmark {
+            width: 5em;
+            opacity: 1;
+        }
+
+        .isBookmarked {
+            background: $accentColor;
+
+            svg {
+                fill: $secondaryColor;
+            }
+        }
+
+        .repoSearchBarWrapper {
+            flex: 1;
+            position: relative;
+
+            .repoSearchBar {
+                width: 100%;
+                font-size: 1.5em;
+                padding: 0.7em 1em;
+                padding-right: 1.9em;
+                border: none;
+                border-radius: 0.4em;
+                box-shadow: $secondaryShadow;
+
+                &:focus {
+                    outline: solid 2px $lightColor;
+                }
+
+                &::placeholder {
+                    color: #c4c4c4;
+                }
+            }
+
+            .searchError {
+                animation: errorPing 1s alternate infinite;
+            }
+
+            @keyframes errorPing {
+                0% {
+                    box-shadow: 0 0 12px 1px rgba(206, 58, 58, 0.3);
+                }
+                100% {
+                    box-shadow: 0 0 12px -3px rgba(206, 58, 58, 0.3);
+                }
+            }
+
+            svg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0.8em;
+                margin: auto;
+                cursor: pointer;
+            }
+        }
+
+        .repoSearchButton {
+            cursor: pointer;
+            border-radius: $borderRadius;
+            border: none;
+            // outline: none;
+            background: $primaryColor;
+            color: $secondaryColor;
+            padding: 0 1.4em;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                box-shadow: $primaryShadow;
+            }
+
+            &:active {
+                box-shadow: inset $secondaryShadow;
+            }
+
+            svg {
+                width: 2.5em;
+            }
+
+            .loader {
+                border: 0.5em solid rgba(0, 0, 0, 0.1);
+                border-top: 0.5em solid $secondaryColor;
+                border-radius: 50%;
+                width: 2.5em;
+                height: 2.5em;
+                animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        .disabledBar {
+            color: $lightColor;
+            background: $secondaryColor;
+        }
+
+        .disabledButton {
+            box-shadow: $primaryShadow;
+            cursor: default;
+        }
+
+        .infoUI {
+            width: 100%;
+            text-align: center;
+
+            .infoMsg {
+                color: $lightColor;
+                margin-bottom: 0.5em;
+
+                span {
+                    color: $fadedColor;
+                    position: relative;
+                    cursor: pointer;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        height: 0.13em;
+                        width: 100%;
+                        margin: 0 auto;
+                        background: $lightColor;
+                    }
+
+                    &:hover {
+                        color: $primaryColor;
+                    }
+                }
+            }
+
+            .infoError {
+                color: $dangerColor;
+            }
+
+            .infoNotify {
+                color: $dangerColor;
+                font-weight: bold;
+            }
+
+            .bookmarks {
+                transition: all 0.5s;
+                margin-top: 3em;
+
+                h2 {
+                    font-size: 1em;
+                }
+
+                .bookmarkWrapper {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 1em;
+                    margin-top: 1em;
+                    transition: all 0.5s;
+
+                    .bookmarkedRepo {
+                        max-width: 20em;
+                        width: 100%;
+                        background: $primaryColor;
+                        border-radius: $borderRadius;
+                        color: $secondaryColor;
+                        padding: 0.8em 0.5em;
+                        cursor: pointer;
+                        text-transform: uppercase;
+                        position: relative;
+                        transition: all 0.1s;
+
+                        &:hover {
+                            box-shadow: $primaryShadow;
+                            transform: scale(1.02);
+                        }
+
+                        &::before,
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                            width: 1.1em;
+                            height: 0.1em;
+                            background: $secondaryColor;
+                        }
+
+                        &::before {
+                            left: 0.8em;
+                        }
+
+                        &::after {
+                            right: 0.8em;
+                        }
+
+                        p {
+                            font-size: 0.8em;
+                            color: $fontColor;
+                        }
+
+                        h1 {
+                            font-size: 1.3em;
+                            margin-top: -0.1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .wrapper {
+        width: 100%;
+        transition: flex 0.5s;
+        border-radius: $borderRadius;
+        opacity: 0;
+        transition: height 1s, opacity 1s;
+
+        .view {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+        }
+
+        .profile {
+        }
+
+        .statsShown {
+            opacity: 1;
+        }
+    }
+
+    .wrapperOpen {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 688px) {
+    .Search {
+        .repoTitle {
+            .repoName {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
