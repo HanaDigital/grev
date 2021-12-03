@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+<p align="center">
+  	<img width="100%" src="https://user-images.githubusercontent.com/41040912/116804280-ad57f480-ab2e-11eb-9bb9-46e714c05ac3.png">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  	<a href="https://hanadigital.github.io/grev/"><img width="200" src="https://user-images.githubusercontent.com/41040912/116804290-ba74e380-ab2e-11eb-9945-57f16778b3bf.png"></a>
+	<br />
+	Web app to view github's release statistics.
+</p>
 
-## Available Scripts
+#### Authors
 
-In the project directory, you can run:
+-   dr-nyt
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   View the download count of the latest release.
+-   View the total download count of all release.
+-   View the download count of every individual release.
+-   Cache recently visited repositories for ease of use.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to use
 
-### `npm test`
+-   Goto https://hanadigital.github.io/grev/.
+-   Paste the URL of the repository you want to view in any of the following formats:
+    -   `https://github.com/username/repo`
+    -   `github.com/username/repo`
+    -   `username/repo`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Bug report
 
-### `npm run build`
+-   If you find any bugs then feel free to report them [here](https://github.com/HanaDigital/grev/issues).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Support
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you like our work, and want to help support apps like these, you can [buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url) or join our discord https://discord.gg/Wya4Dst
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
+```
+Copyright 2015 HanaDigital
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+http://www.apache.org/licenses/LICENSE-2.0
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
