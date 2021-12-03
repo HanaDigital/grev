@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/grev/static/css/main.521cbf1a.chunk.css",
+    "main.js": "/grev/static/js/main.17e912c4.chunk.js",
+    "main.js.map": "/grev/static/js/main.17e912c4.chunk.js.map",
+    "runtime-main.js": "/grev/static/js/runtime-main.e9e1f53d.js",
+    "runtime-main.js.map": "/grev/static/js/runtime-main.e9e1f53d.js.map",
+    "static/js/2.97ca704f.chunk.js": "/grev/static/js/2.97ca704f.chunk.js",
+    "static/js/2.97ca704f.chunk.js.map": "/grev/static/js/2.97ca704f.chunk.js.map",
+    "index.html": "/grev/index.html",
+    "static/css/main.521cbf1a.chunk.css.map": "/grev/static/css/main.521cbf1a.chunk.css.map",
+    "static/js/2.97ca704f.chunk.js.LICENSE.txt": "/grev/static/js/2.97ca704f.chunk.js.LICENSE.txt",
+    "static/media/blob-bottom.103b3c99.png": "/grev/static/media/blob-bottom.103b3c99.png",
+    "static/media/blob-top.9edb3215.png": "/grev/static/media/blob-top.9edb3215.png",
+    "static/media/older_versions.a3c9293b.png": "/grev/static/media/older_versions.a3c9293b.png",
+    "static/media/search_owner.42f2bcdd.png": "/grev/static/media/search_owner.42f2bcdd.png",
+    "static/media/short_url.8534180c.png": "/grev/static/media/short_url.8534180c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e9e1f53d.js",
+    "static/js/2.97ca704f.chunk.js",
+    "static/css/main.521cbf1a.chunk.css",
+    "static/js/main.17e912c4.chunk.js"
+  ]
+}
