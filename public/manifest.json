@@ -1,6 +1,6 @@
 {
   "short_name": "GREV",
-  "name": "Github Release Viewer",
+  "name": "GREV",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/grev/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#3acea2",
   "background_color": "#f1f4f7"

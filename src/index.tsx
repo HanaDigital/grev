@@ -4,6 +4,7 @@ import "./index.scss";
 import App from "./components/App";
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, logEvent } from "firebase/analytics";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAc4OW8ZeWVq9Wsd2aFmpXu2KW_ixm9QvY",
@@ -26,3 +27,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.register();
