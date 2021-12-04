@@ -14,18 +14,19 @@
 
 ## Features
 
--   View the download count of the latest release.
--   View the total download count of all release.
+-   View the total download count of all releases.
 -   View the download count of every individual release.
--   Cache recently visited repositories for ease of use.
+-   Bookmark most visited repositories.
+-   List all repositories of the owner.
 
 ## How to use
 
 -   Goto https://hanadigital.github.io/grev/.
--   Paste the URL of the repository you want to view in any of the following formats:
+-   Search for repositories or owners in any of the following formats
     -   `https://github.com/username/repo`
     -   `github.com/username/repo`
     -   `username/repo`
+    -   `username`
 
 ## Bug report
 
@@ -33,12 +34,12 @@
 
 ## Support
 
-If you like our work, and want to help support apps like these, you can [buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url) or join our discord https://discord.gg/Wya4Dst
+If you like our work, and want to help keep apps like these ad-free, you can [buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url) or join our discord https://discord.gg/Wya4Dst
 
 ## License
 
 ```
-Copyright 2015 HanaDigital
+Copyright 2020 HanaDigital
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
