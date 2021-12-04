@@ -15,7 +15,7 @@ export async function fetchReleaseObj(url: string): Promise<ReleaseObj[] | undef
 }
 
 export function updateURL(repoOwner: string, repoName: string | undefined) {
-  const newURL = `${window.location.protocol}//${window.location.host}/grev/${repoOwner}/${repoName ? repoName : ""}`;
+  const newURL = `${window.location.protocol}//${window.location.host}/grev/?user=${repoOwner}&repo=${repoName ? repoName : ""}`;
   // eslint-disable-next-line no-restricted-globals
   history.pushState({ path: newURL }, '', newURL);
 }

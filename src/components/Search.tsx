@@ -58,7 +58,6 @@ const Search: FC<{ setShowReadMe: React.Dispatch<React.SetStateAction<boolean>> 
     } else {
       const paths = window.location.pathname.split('/')
         .filter((path) => path !== "" && path !== "grev");
-      console.log(paths);
       if (paths.length !== 0) {
         if (paths.length === 1) changeTitle(paths[0]);
         else if (paths.length === 2) changeTitle(`${paths[0]}/${paths[1]}`);
