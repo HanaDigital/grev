@@ -7,7 +7,7 @@ import bookmarkIMG from "../assets/guide/bookmark.png";
 import bookmarksIMG from "../assets/guide/bookmarks.png";
 import olderVersionsIMG from "../assets/guide/older_versions.png";
 
-const ReadMe: FC<{ showReadMe: boolean, setShowReadMe: React.Dispatch<React.SetStateAction<boolean>> }> = ({ showReadMe, setShowReadMe }) => {
+const ReadMe: FC<{ setShowReadMe: React.Dispatch<React.SetStateAction<boolean>> }> = ({ setShowReadMe }) => {
 
     return (
         <div className="readMe" onClick={() => setShowReadMe(false)}>

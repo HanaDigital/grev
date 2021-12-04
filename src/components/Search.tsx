@@ -19,9 +19,8 @@ import {
 } from "../lib";
 import RepoCard from "./RepoCard";
 import RepoStats from "./RepoStats";
-import ReadMe from "./ReadMe";
 
-const Search: FC = () => {
+const Search: FC<{ setShowReadMe: React.Dispatch<React.SetStateAction<boolean>> }> = ({ setShowReadMe }) => {
   const searchBarRef = useRef<HTMLInputElement>(null);
 
   const defaultOwner = "GITHUB RELEASE VIEWER";
@@ -43,7 +42,6 @@ const Search: FC = () => {
   const [isEmptyProfile, setIsEmptyProfile] = useState(false);
   const [isErrorShown, setIsErrorShown] = useState(false);
   const [errorText, setErrorText] = useState("Something went wrong!");
-  const [showReadMe, setShowReadMe] = useState(false);
 
   const [repoStats, setRepoStats] = useState<statsObj>({ repoOwner: "", repoName: "", totalDownloads: 0, releases: [] });
 
@@ -400,8 +398,6 @@ const Search: FC = () => {
       >
         {isRepoShown && !isEmptyRepo && <RepoStats isRepoShown={isRepoShown} stats={repoStats} />}
       </div>
-
-      {showReadMe && <ReadMe showReadMe={showReadMe} setShowReadMe={setShowReadMe} />}
     </section>
   );
 };
