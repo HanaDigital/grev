@@ -10,7 +10,11 @@
 
 #### Authors
 
--   dr-nyt
+[@dr-nyt](https://github.com/dr-nyt)
+
+#### Contributors
+
+[@dolphinspired](https://github.com/dolphinspired)
 
 ## Features
 
