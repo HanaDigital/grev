@@ -31,7 +31,7 @@ const ReadMe: FC<{ setShowReadMe: React.Dispatch<React.SetStateAction<boolean>> 
 
                     <div className="guide">
                         <h3>Bookmarks</h3>
-                        <p>You can now bookmark upto 6 repositories of your choice! Just visit any repository click the start icon.</p>
+                        <p>You can now bookmark upto 6 repositories of your choice! Just visit any repository and click the star icon.</p>
                         <div className="imgs">
                             <img src={bookmarkIMG} alt="Bookmark button" />
                             <img src={bookmarksIMG} alt="Bookmarks" />
@@ -40,7 +40,7 @@ const ReadMe: FC<{ setShowReadMe: React.Dispatch<React.SetStateAction<boolean>> 
 
                     <div className="guide">
                         <h3>Older version statistics</h3>
-                        <p>You can click on older versions of a repository to see the details.</p>
+                        <p>You can click on older versions of a repository to see their details.</p>
                         <div className="imgs">
                             <img src={olderVersionsIMG} alt="Older version" />
                         </div>

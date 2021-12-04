@@ -132,6 +132,12 @@
         gap: 0.5em;
         font-size: 2em;
     }
+
+    .logoIcon {
+        &::after {
+            display: none;
+        }
+    }
 }
 
 @media only screen and (max-width: 600px) {

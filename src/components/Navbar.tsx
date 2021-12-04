@@ -10,7 +10,7 @@ const Navbar: FC = () => {
         <div className="navMenuButton" onClick={() => { setIsOpenMenu(state => !state) }}>
           <div className="navMenuIcon"></div>
         </div>
-        <a href="/">
+        <a className="logoIcon" href="/grev/">
           G<span>RE</span>V
         </a>
       </h1>
