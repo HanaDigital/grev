@@ -34,11 +34,11 @@ const Navbar: FC = () => {
         {/* TODO: Update donation link */}
         <a
           className="donate"
-          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url"
+          href="https://github.com/sponsors/HanaDigital"
           target="_blank"
           rel="noreferrer"
         >
-          Donate
+          Sponsor
         </a>
       </div>
       {
