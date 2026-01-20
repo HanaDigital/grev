@@ -1,9 +1,12 @@
 "use client";
 
 import { analytics } from "@/lib/firebase";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 
 export default function AnalyticsProvider({ children }: PropsWithChildren) {
-    console.log(`Analytics active for app: ${analytics.app.name}`);
+    useEffect(() => {
+        if (analytics)
+            console.log(`Analytics active for app: ${analytics?.app.name}`);
+    }, []);
     return <>{children}</>;
 }
