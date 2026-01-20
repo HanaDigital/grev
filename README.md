@@ -38,7 +38,7 @@
 
 ## Support
 
-If you like our work, and want to help keep apps like these ad-free, you can [buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2W7DADSP9HKQ8&source=url) or join our discord https://discord.gg/Wya4Dst
+If you like our work, and want to help keep apps like these ad-free, you can [buy me a coffee](https://github.com/sponsors/HanaDigital) or join our discord https://discord.gg/Wya4Dst
 
 ## License
 
