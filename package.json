@@ -12,6 +12,7 @@
     "dependencies": {
         "@octokit/plugin-throttling": "^11.0.3",
         "@octokit/request-error": "^7.1.0",
+        "@radix-ui/react-dialog": "^1.1.15",
         "@radix-ui/react-label": "^2.1.8",
         "@radix-ui/react-popover": "^1.1.15",
         "@radix-ui/react-slot": "^1.2.4",

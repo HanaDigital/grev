@@ -173,13 +173,13 @@ export function SearchResultsUI({ handleSearch }: SearchResultsUIProps) {
             {!selectedRepoReleases && !!Object.keys(bookmarkedRepos).length && (
                 <motion.div
                     key="bookmarkedReposContainer"
-                    className="flex flex-col w-full gap-4 max-h-96 overflow-hidden p-4 border-t"
+                    className="flex flex-col w-full gap-4 max-h-96 overflow-hidden"
                     variants={resultVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
                 >
-                    <div className="flex items-center justify-between gap-1 mb-1 max-h-96 overflow-hidden">
+                    <div className="flex items-center justify-between gap-1 mb-1 max-h-96 overflow-hidden px-6">
                         <h2 className="text-lg font-semibold flex items-center gap-1 flex-1 text-nowrap">
                             <BookmarkIcon className="w-4" />
                             Bookmarked Repositories
@@ -202,7 +202,7 @@ export function SearchResultsUI({ handleSearch }: SearchResultsUIProps) {
                             </Button>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-2 overflow-auto">
+                    <div className="flex flex-col gap-2 overflow-auto px-6">
                         <AnimatePresence>
                             {filteredBookmarkedRepos.map((repo) => {
                                 const repoURL = `${repo.owner}/${repo.repoName}`;
@@ -243,13 +243,13 @@ export function SearchResultsUI({ handleSearch }: SearchResultsUIProps) {
             {selectedRepoReleases && !!selectedRepoReleases.data.length && (
                 <motion.div
                     key="repoStatsContainer"
-                    className="flex flex-col w-full gap-4"
+                    className="flex flex-col w-full gap-1 px-6"
                     variants={resultVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
                 >
-                    <div className="flex items-center justify-between gap-1 mb-1">
+                    <div className="flex items-center justify-between gap-2 mb-1 flex-wrap">
                         <Button
                             size="sm"
                             variant="secondary"
@@ -277,16 +277,16 @@ export function SearchResultsUI({ handleSearch }: SearchResultsUIProps) {
                                 ]
                             }
                         />
+                        <RepoReleasesGraphCardUI
+                            repoReleases={selectedRepoReleases}
+                        />
                     </div>
-                    <RepoReleasesGraphCardUI
-                        repoReleases={selectedRepoReleases}
-                    />
                 </motion.div>
             )}
             {selectedRepoReleases && !selectedRepoReleases.data.length && (
                 <motion.div
                     key="noStatsContainer"
-                    className="flex flex-col w-full"
+                    className="flex flex-col w-full px-6"
                     variants={resultVariants}
                     initial="initial"
                     animate="animate"
@@ -364,7 +364,7 @@ function RepoReleasesCardUI({
     );
 
     return (
-        <div className="flex-1 rounded-lg border bg-card flex flex-col max-h-96 overflow-hidden">
+        <div className="w-full lg:flex-1 rounded-lg border bg-card flex flex-col max-h-96 overflow-hidden">
             <div className="flex flex-col gap-4 p-4">
                 <p className="font-bold">
                     Total Downloads{" "}
@@ -497,7 +497,7 @@ function RepoReleasesGraphCardUI({
         }))
         .reverse();
     return (
-        <div className="flex-1 rounded-lg border bg-card flex flex-col max-h-96 overflow-hidden">
+        <div className="w-full rounded-lg border bg-card flex flex-col max-h-96 overflow-hidden">
             <div className="flex flex-col gap-4 p-4">
                 <p className="font-bold">
                     Release Downloads Chart{" "}

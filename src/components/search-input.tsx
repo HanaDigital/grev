@@ -35,8 +35,8 @@ export function SearchInputUI({ handleSearch }: SearchInputUIProps) {
     const isLoadingData = useAtomValue(isLoadingDataAtom);
 
     return (
-        <div className="flex flex-col gap-6 w-full">
-            <div className="flex flex-col">
+        <div className="flex flex-col gap-6 w-full px-6">
+            <div className="flex flex-col mb-2 sm:mb-0">
                 <TextEffect
                     key={owner}
                     per="char"
@@ -86,7 +86,7 @@ export function SearchInputUI({ handleSearch }: SearchInputUIProps) {
                         </motion.div>
                         <Input
                             placeholder="https://github.com/owner/repository"
-                            className="relative text-2xl! h-auto p-4 w-full border-2 bg-white placeholder:opacity-50 shadow-none! ring-0!"
+                            className="relative text-lg sm:text-2xl! h-auto p-4 w-full border-2 bg-white placeholder:opacity-50 shadow-none! ring-0!"
                             autoComplete="off"
                             type="url"
                             value={searchValue}

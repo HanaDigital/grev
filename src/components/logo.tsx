@@ -50,7 +50,7 @@ const logoLEASEVariants: Variants = {
 
 export function LogoUI() {
     return (
-        <motion.h1
+        <motion.div
             className="text-3xl font-medium flex cursor-default font-teko tracking-wide text-secondary-foreground"
             initial="initial"
             whileHover="whileHover"
@@ -88,6 +88,6 @@ export function LogoUI() {
                 iewer
             </motion.div>
             <span className="sr-only">Github Release Viewer</span>
-        </motion.h1>
+        </motion.div>
     );
 }

@@ -84,7 +84,7 @@ export function SearchUI() {
     }, [handleSearch, setSearchValue]);
 
     return (
-        <section className="flex-1 flex flex-col justify-center items-start max-w-5xl w-full mx-auto p-3 py-24">
+        <section className="flex-1 flex flex-col justify-center items-start max-w-5xl w-full mx-auto px-0 py-24">
             <SearchInputUI handleSearch={handleSearch} />
             <SearchResultsUI handleSearch={handleSearch} />
         </section>
