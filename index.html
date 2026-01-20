@@ -1,1 +1,92 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/grev/favicon.ico"/><link rel="apple-touch-icon" href="/grev/logo192.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#3acea2"/><title>GREV</title><meta property="og:title" content="GREV"/><meta property="twitter:title" content="GREV"/><meta name="author" content="HanaDigital | dr-nyt"/><meta name="description" content="Github release viewer. Check your github release statistics and version history."/><meta property="og:description" content="Github release viewer. Check your github release statistics and version history."/><meta property="twitter:description" content="Github release viewer. Check your github release statistics and version history."/><meta name="keywords" content="github, releases, downloads"/><meta property="og:image" content="https://i.imgur.com/M9BylwW.png"/><meta property="twitter:image" content="https://i.imgur.com/M9BylwW.png"/><meta property="og:url" content="hanadigital.github.io/grev/"/><meta property="twitter:card" content="summery_large_image"/><link rel="manifest" href="/grev/manifest.json"/><link href="/grev/static/css/main.30d8fb5a.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/grev/";var f=this.webpackJsonpgrev=this.webpackJsonpgrev||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([])</script><script src="/grev/static/js/2.7f9dc753.chunk.js"></script><script src="/grev/static/js/main.b367f275.chunk.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>
+            <span class="teko-font">G<span class="re">RE</span>V</span>
+            has migrated to a new domain<span>.</span>
+        </h1>
+        <a href="https://grev.shehryar.ae">grev.shehryar.ae</a>
+        <p id="timer">Redirecting in 5 seconds...</p>
+    </body>
+    <script>
+        setTimeout(() => {
+            window.location.href = "https://grev.shehryar.ae";
+        }, 5000);
+
+        // Countdown timer
+        const timerElement = document.getElementById("timer");
+        let timeLeft = 5;
+
+        const countdown = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+            } else {
+                timerElement.textContent = `Redirecting in ${timeLeft} seconds...`;
+                timeLeft--;
+            }
+        }, 1000);
+    </script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Teko:wght@300..700&display=swap");
+
+        .teko-font {
+            font-family: "Teko", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Outfit", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+
+            background-color: oklch(75% 0.16 163);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            font-weight: 400;
+            line-height: 40px;
+        }
+
+        span {
+            font-size: 6rem;
+            color: white;
+        }
+
+        .re {
+            color: white;
+        }
+
+        a {
+            font-size: 2rem;
+            /* text-decoration: none; */
+            background-color: white;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0rem;
+            padding-bottom: 1.2rem;
+            color: oklch(75% 0.16 163);
+        }
+    </style>
+</html>
