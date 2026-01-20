@@ -1,3 +1,5 @@
+"use client";
+
 import { atom, createStore } from "jotai";
 import { ApiRateLimitT, RepoReleaseT } from "./types";
 import { atomWithStorage } from "jotai/utils";

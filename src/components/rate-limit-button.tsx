@@ -107,7 +107,12 @@ export default function RateLimitButtonUI() {
                                 </h4>
                                 <p className="text-muted-foreground text-sm pr-5">
                                     The amount of requests you can make to the
-                                    github api.
+                                    github api.{" "}
+                                    {status !== "authenticated" && (
+                                        <span>
+                                            Login to increase your rate limits.
+                                        </span>
+                                    )}
                                 </p>
                             </div>
 
