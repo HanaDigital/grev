@@ -1,8 +1,6 @@
 import LoginUI from "@/components/login";
 import { LogoUI } from "@/components/logo";
 import { SearchUI } from "@/components/search";
-import { SearchInputUI } from "@/components/search-input";
-import { SearchResultsUI } from "@/components/search-results";
 import { ThemeToggleUI } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { HeartIcon } from "lucide-react";
