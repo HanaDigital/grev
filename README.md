@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  	<a href="https://hanadigital.github.io/grev/"><img width="200" src="https://user-images.githubusercontent.com/41040912/116804290-ba74e380-ab2e-11eb-9945-57f16778b3bf.png"></a>
+  	<a href="https://grev.shehryar.ae"><img width="200" src="https://user-images.githubusercontent.com/41040912/116804290-ba74e380-ab2e-11eb-9945-57f16778b3bf.png"></a>
 	<br />
 	Web app to view github's release statistics.
 </p>
@@ -18,23 +18,23 @@
 
 ## Features
 
--   View the total download count of all releases.
--   View the download count of every individual release.
--   Bookmark most visited repositories.
--   List all repositories of the owner.
+- View the total download count of all releases.
+- View the download count of every individual release.
+- Bookmark most visited repositories.
+- List all repositories of the owner.
 
 ## How to use
 
--   Goto https://hanadigital.github.io/grev/.
--   Search for repositories or owners in any of the following formats
-    -   `https://github.com/username/repo`
-    -   `github.com/username/repo`
-    -   `username/repo`
-    -   `username`
+- Goto https://hanadigital.github.io/grev/.
+- Search for repositories or owners in any of the following formats
+    - `https://github.com/username/repo`
+    - `github.com/username/repo`
+    - `username/repo`
+    - `username`
 
 ## Bug report
 
--   If you find any bugs then feel free to report them [here](https://github.com/HanaDigital/grev/issues).
+- If you find any bugs then feel free to report them [here](https://github.com/HanaDigital/grev/issues).
 
 ## Support
 
