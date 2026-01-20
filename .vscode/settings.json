@@ -1,3 +1,5 @@
 {
-    "cSpell.words": ["appspot", "commitish", "firebaseapp", "GREV", "predeploy", "VDRJ", "zipball"]
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "cSpell.words": ["commitish", "GREV", "Hanadigital", "zipball"]
 }
