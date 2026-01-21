@@ -29,10 +29,13 @@ import {
     BugIcon,
     FilterIcon,
     GhostIcon,
+    PackageIcon,
     PlusIcon,
     RotateCwIcon,
     SearchIcon,
+    SquareArrowOutUpRightIcon,
     StarIcon,
+    TruckIcon,
 } from "lucide-react";
 import { getRepoData } from "@/lib/helper";
 import { toast } from "sonner";
@@ -259,7 +262,20 @@ export function SearchResultsUI({ handleSearch }: SearchResultsUIProps) {
                             {isLoadingData ? <Spinner /> : <RotateCwIcon />}
                             Cache updated {cacheTimeFromNow}
                         </Button>
-                        <FiltersDialogUI repoReleases={selectedRepoReleases} />
+                        <div className="flex items-center gap-2">
+                            <FiltersDialogUI
+                                repoReleases={selectedRepoReleases}
+                            />
+                            <Button size="icon-sm" variant="outline" asChild>
+                                <a
+                                    href={`https://github.com/${selectedRepoURL}/releases`}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <SquareArrowOutUpRightIcon />
+                                </a>
+                            </Button>
+                        </div>
                     </div>
                     <div className="flex gap-4 flex-wrap">
                         <RepoReleasesCardUI
@@ -372,18 +388,26 @@ function RepoReleasesCardUI({
                 </p>
                 <div className="flex items-end">
                     <AnimatedNumber
-                        className="inline-flex items-center font-mono text-6xl font-black text-primary"
+                        className="inline-flex items-center font-mono text-5xl sm:text-6xl font-black text-primary"
                         springOptions={{
                             bounce: 0,
                             duration: 2000,
                         }}
                         value={totalDownloads}
                     />
-                    <span className="font-light text-sm mb-2 mx-0.5">/</span>
-                    <span className="font-light text-sm mb-2">downloads</span>
+                    <span className="font-light text-sm mb-2 mx-0.5 hidden sm:block">
+                        /
+                    </span>
+                    <span className="font-light text-sm mb-2 hidden sm:block truncate">
+                        downloads
+                    </span>
                 </div>
             </div>
-            <div className="flex flex-col overflow-y-auto p-4 mb-4">
+            <Label className="px-4 pb-2 mt-2 text-muted-foreground font-black">
+                <TruckIcon className="w-4" />
+                Releases ({releasesInfo.length})
+            </Label>
+            <div className="flex flex-col overflow-y-auto p-4 pt-2 mb-4 border-t shadow-inner">
                 {releasesInfo.map((release, i) => (
                     <div
                         key={release.id}
@@ -429,18 +453,26 @@ function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
                 </p>
                 <div className="flex items-end">
                     <AnimatedNumber
-                        className="inline-flex items-center font-mono text-6xl font-black text-primary"
+                        className="inline-flex items-center font-mono text-5xl sm:text-6xl font-black text-primary"
                         springOptions={{
                             bounce: 0,
                             duration: 2000,
                         }}
                         value={totalDownloads}
                     />
-                    <span className="font-light text-sm mb-2 mx-0.5">/</span>
-                    <span className="font-light text-sm mb-2">downloads</span>
+                    <span className="font-light text-sm mb-2 mx-0.5 hidden sm:block">
+                        /
+                    </span>
+                    <span className="font-light text-sm mb-2 hidden sm:block truncate">
+                        downloads
+                    </span>
                 </div>
             </div>
-            <div className="flex flex-col overflow-y-auto p-4 mb-4">
+            <Label className="px-4 pb-2 mt-2 text-muted-foreground font-black">
+                <PackageIcon className="w-4" />
+                Assets ({repoRelease.assets.length})
+            </Label>
+            <div className="flex flex-col overflow-y-auto p-4 pt-2 mb-4 border-t shadow-inner">
                 {repoRelease.assets.map((asset) => {
                     const isIncluded = repoFilter?.isEnabled
                         ? (() => {
