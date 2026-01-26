@@ -10,10 +10,7 @@ export function ThemeToggleUI() {
 
     useEffect(() => {
         if (theme !== "system") return;
-        const isDarkMode = window.matchMedia(
-            "(prefers-color-scheme: dark)",
-        ).matches;
-        setTheme(isDarkMode ? "dark" : "light");
+        setTheme("light");
     }, [theme, setTheme]);
 
     const toggleTheme = () => {
