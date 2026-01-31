@@ -42,4 +42,9 @@ export const bookmarkedReposAtom = atomWithStorage<{
     [key: string]: BookmarkedRepoAtomT;
 }>("bookmarkedRepos", {});
 
+export const sortAssetsByDownloadCountAtom = atomWithStorage<boolean>(
+    "sortAssetsByDownloadCount",
+    false,
+);
+
 export const isLoadingDataAtom = atom(false);

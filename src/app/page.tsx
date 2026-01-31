@@ -6,17 +6,11 @@ import { Button } from "@/components/ui/button";
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-    ArrowUpRightFromSquare,
-    ArrowUpRightIcon,
-    HeartIcon,
-    MenuIcon,
-} from "lucide-react";
+import { HeartIcon, MenuIcon } from "lucide-react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 

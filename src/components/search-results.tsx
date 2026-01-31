@@ -9,6 +9,7 @@ import {
     RepoReleasesAtomT,
     searchInputValue,
     selectedRepoURLAtom,
+    sortAssetsByDownloadCountAtom,
 } from "@/lib/store";
 import { RepoReleaseT } from "@/lib/types";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
@@ -443,7 +444,9 @@ type RepoReleaseCardUIProps = {
     repoRelease: RepoReleaseT;
 };
 function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
-    const [sortByDownloads, setSortByDownloads] = useState(false);
+    const [sortAssetsByDownloadCount, setSortAssetsByDownloadCount] = useAtom(
+        sortAssetsByDownloadCountAtom,
+    );
     const repoFilters = useAtomValue(repoFiltersAtom);
     const repoFilter = repoFilters[repoUrl];
 
@@ -458,7 +461,7 @@ function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
             : repoRelease.assets
     ).reduce((total, a) => (total += a.download_count), 0);
 
-    const assets = sortByDownloads
+    const assets = sortAssetsByDownloadCount
         ? repoRelease.assets.toSorted(
               (a, b) => b.download_count - a.download_count,
           )
@@ -495,7 +498,11 @@ function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
                 </div>
                 <TooltipUI
                     asChild
-                    text={sortByDownloads ? "Reset Sorting" : "Sort Assets"}
+                    text={
+                        sortAssetsByDownloadCount
+                            ? "Reset Sorting"
+                            : "Sort Assets"
+                    }
                     side="top"
                     delayDuration={400}
                 >
@@ -503,10 +510,14 @@ function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
                         size="icon-sm"
                         variant="ghost"
                         className="hover:bg-muted"
-                        onClick={() => setSortByDownloads((v) => !v)}
+                        onClick={() => setSortAssetsByDownloadCount((v) => !v)}
                     >
                         <ArrowDownWideNarrow
-                            className={sortByDownloads ? "stroke-primary" : ""}
+                            className={
+                                sortAssetsByDownloadCount
+                                    ? "stroke-primary"
+                                    : ""
+                            }
                         />
                     </Button>
                 </TooltipUI>
