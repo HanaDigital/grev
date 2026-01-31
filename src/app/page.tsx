@@ -11,7 +11,12 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { HeartIcon, MenuIcon } from "lucide-react";
+import {
+    ArrowUpRightFromSquare,
+    ArrowUpRightIcon,
+    HeartIcon,
+    MenuIcon,
+} from "lucide-react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 
@@ -50,15 +55,26 @@ export default function Home() {
 
             <SearchUI />
 
+            <div className="text-center px-4 py-20 text-muted-foreground flex items-center justify-center">
+                Built with 💖 by
+                <a
+                    href="https://shehryar.ae"
+                    target="_blank"
+                    className="underline flex items-center justify-center gap-1 font-semibold mx-1"
+                >
+                    Shehryar{" "}
+                </a>
+            </div>
+
             <Image
-                className="fixed bottom-0 left-0 w-52 lg:w-xs -scale-x-100 -z-10"
+                className="fixed bottom-0 left-0 w-24 sm:w-34 md:w-52 lg:w-xs -scale-x-100 -z-10"
                 src="/images/blob-to.png"
                 width={419}
                 height={603}
                 alt=""
             />
             <Image
-                className="fixed bottom-0 right-0 w-52 lg:w-xs -z-10"
+                className="fixed bottom-0 right-0 w-24 sm:w-34 md:w-52 lg:w-xs -z-10"
                 src="/images/blob-bottom.png"
                 width={478}
                 height={489}
