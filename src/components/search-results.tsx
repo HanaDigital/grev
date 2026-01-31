@@ -25,6 +25,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { Button } from "./ui/button";
 import { Spinner } from "./ui/spinner";
 import {
+    ArrowDownWideNarrow,
     BookmarkIcon,
     BugIcon,
     FilterIcon,
@@ -68,6 +69,7 @@ import {
 } from "./ui/chart";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { useSession } from "next-auth/react";
+import { TooltipUI } from "./custom-ui/tooltip-ui";
 
 dayjs.extend(relativeTime);
 
@@ -266,15 +268,26 @@ export function SearchResultsUI({ handleSearch }: SearchResultsUIProps) {
                             <FiltersDialogUI
                                 repoReleases={selectedRepoReleases}
                             />
-                            <Button size="icon-sm" variant="outline" asChild>
-                                <a
-                                    href={`https://github.com/${selectedRepoURL}/releases`}
-                                    target="_blank"
-                                    rel="noreferrer"
+                            <TooltipUI
+                                asChild
+                                text="View on GitHub"
+                                side="top"
+                                delayDuration={400}
+                            >
+                                <Button
+                                    size="icon-sm"
+                                    variant="outline"
+                                    asChild
                                 >
-                                    <SquareArrowOutUpRightIcon />
-                                </a>
-                            </Button>
+                                    <a
+                                        href={`https://github.com/${selectedRepoURL}/releases`}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        <SquareArrowOutUpRightIcon />
+                                    </a>
+                                </Button>
+                            </TooltipUI>
                         </div>
                     </div>
                     <div className="flex gap-4 flex-wrap">
@@ -430,6 +443,7 @@ type RepoReleaseCardUIProps = {
     repoRelease: RepoReleaseT;
 };
 function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
+    const [sortByDownloads, setSortByDownloads] = useState(false);
     const repoFilters = useAtomValue(repoFiltersAtom);
     const repoFilter = repoFilters[repoUrl];
 
@@ -443,6 +457,12 @@ function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
               })
             : repoRelease.assets
     ).reduce((total, a) => (total += a.download_count), 0);
+
+    const assets = sortByDownloads
+        ? repoRelease.assets.toSorted(
+              (a, b) => b.download_count - a.download_count,
+          )
+        : repoRelease.assets;
 
     return (
         <div className="flex-1 rounded-lg border bg-card flex flex-col max-h-96 overflow-hidden">
@@ -468,12 +488,31 @@ function RepoReleaseCardUI({ repoUrl, repoRelease }: RepoReleaseCardUIProps) {
                     </span>
                 </div>
             </div>
-            <Label className="px-4 pb-2 mt-2 text-muted-foreground font-black">
-                <PackageIcon className="w-4" />
-                Assets ({repoRelease.assets.length})
-            </Label>
+            <div className="px-4 pb-2 mt-2 text-muted-foreground font-bold justify-between group flex items-center text-sm">
+                <div className="flex items-center gap-2">
+                    <PackageIcon className="w-4" />
+                    Assets ({repoRelease.assets.length})
+                </div>
+                <TooltipUI
+                    asChild
+                    text={sortByDownloads ? "Reset Sorting" : "Sort Assets"}
+                    side="top"
+                    delayDuration={400}
+                >
+                    <Button
+                        size="icon-sm"
+                        variant="ghost"
+                        className="hover:bg-muted"
+                        onClick={() => setSortByDownloads((v) => !v)}
+                    >
+                        <ArrowDownWideNarrow
+                            className={sortByDownloads ? "stroke-primary" : ""}
+                        />
+                    </Button>
+                </TooltipUI>
+            </div>
             <div className="flex flex-col overflow-y-auto p-4 pt-2 mb-4 border-t shadow-inner">
-                {repoRelease.assets.map((asset) => {
+                {assets.map((asset) => {
                     const isIncluded = repoFilter?.isEnabled
                         ? (() => {
                               const isValid = new RegExp(

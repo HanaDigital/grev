@@ -21,6 +21,7 @@ import {
     searchInputValue,
 } from "@/lib/store";
 import { Spinner } from "./ui/spinner";
+import { TooltipUI } from "./custom-ui/tooltip-ui";
 
 type SearchInputUIProps = {
     handleSearch: (value: string) => void;
@@ -185,17 +186,24 @@ function BookmarkButtonUI({
                         ease: "easeOut",
                     }}
                 >
-                    <Button
-                        className="text-2xl! h-full p-6 border-primary"
-                        onClick={handleSetBookmark}
-                        size="lg"
-                        disabled={isLoadingData}
-                        variant="secondary"
+                    <TooltipUI
+                        asChild
+                        text={isBookmarked ? "Remove Bookmark" : "Bookmark"}
+                        side="top"
+                        delayDuration={400}
                     >
-                        <StarIcon
-                            className={`${isBookmarked ? "fill-primary" : ""}`}
-                        />
-                    </Button>
+                        <Button
+                            className="text-2xl! h-full p-6 border-primary"
+                            onClick={handleSetBookmark}
+                            size="lg"
+                            disabled={isLoadingData}
+                            variant="secondary"
+                        >
+                            <StarIcon
+                                className={`${isBookmarked ? "fill-primary" : ""}`}
+                            />
+                        </Button>
+                    </TooltipUI>
                 </motion.div>
             )}
         </AnimatePresence>
