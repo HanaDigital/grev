@@ -18,6 +18,7 @@ const authOptions: AuthOptions = {
         GithubProvider({
             clientId: process.env.GITHUB_ID!,
             clientSecret: process.env.GITHUB_SECRET!,
+            issuer: "https://github.com/login/oauth",
         }),
     ],
     secret: process.env.AUTH_SECRET,
@@ -27,7 +28,6 @@ const authOptions: AuthOptions = {
     callbacks: {
         async jwt({ token, account }) {
             if (account) {
-                console.log("!!!", account);
                 token.accessToken = account.access_token;
             }
             return token;
