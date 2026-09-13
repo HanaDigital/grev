@@ -1,6 +1,24 @@
 "use client";
 
 import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+    Empty,
+    EmptyContent,
+    EmptyDescription,
+    EmptyHeader,
+    EmptyMedia,
+    EmptyTitle,
+} from "@/components/ui/empty";
+import { getRepoData } from "@/lib/helper";
+import {
     BookmarkedRepoAtomT,
     bookmarkedReposAtom,
     isLoadingDataAtom,
@@ -12,19 +30,9 @@ import {
     sortAssetsByDownloadCountAtom,
 } from "@/lib/store";
 import { RepoReleaseT } from "@/lib/types";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import {
-    AnimatePresence,
-    motion,
-    Transition,
-    type Variants,
-} from "motion/react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { AnimatedNumber } from "./ui/animated-number";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Button } from "./ui/button";
-import { Spinner } from "./ui/spinner";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import {
     ArrowDownWideNarrow,
     BookmarkIcon,
@@ -39,38 +47,30 @@ import {
     StarIcon,
     TruckIcon,
 } from "lucide-react";
-import { getRepoData } from "@/lib/helper";
+import {
+    AnimatePresence,
+    motion,
+    Transition,
+    type Variants,
+} from "motion/react";
+import { useSession } from "next-auth/react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { toast } from "sonner";
-import {
-    Empty,
-    EmptyContent,
-    EmptyDescription,
-    EmptyHeader,
-    EmptyMedia,
-    EmptyTitle,
-} from "@/components/ui/empty";
-import {
-    Dialog,
-    DialogDescription,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-    DialogClose,
-} from "@/components/ui/dialog";
-import { Label } from "./ui/label";
-import { Switch } from "./ui/switch";
-import { Input } from "./ui/input";
+import { TooltipUI } from "./custom-ui/tooltip-ui";
+import { AnimatedNumber } from "./ui/animated-number";
 import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
 } from "./ui/chart";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
-import { useSession } from "next-auth/react";
-import { TooltipUI } from "./custom-ui/tooltip-ui";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Spinner } from "./ui/spinner";
+import { Switch } from "./ui/switch";
 
 dayjs.extend(relativeTime);
 
@@ -679,7 +679,7 @@ function FiltersDialogUI({ repoReleases }: FiltersDialogUIProps) {
     const assetNames = Array.from(assetNamesSet);
 
     let acceptedNames: string[] = [];
-    const rejectedNames: string[] = [];
+    let rejectedNames: string[] = [];
     if (isFiltersEnabled) {
         if (regexFilter) {
             let regex: RegExp;
@@ -698,7 +698,8 @@ function FiltersDialogUI({ repoReleases }: FiltersDialogUIProps) {
                 }
             });
         } else {
-            acceptedNames = assetNames;
+            if (isWhitelist) rejectedNames = assetNames;
+            else acceptedNames = assetNames;
         }
     }
 
